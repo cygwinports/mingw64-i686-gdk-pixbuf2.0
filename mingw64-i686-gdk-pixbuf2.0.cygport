@@ -1,5 +1,9 @@
+CROSS_HOST="i686-w64-mingw32"
+ORIG_PN="gdk-pixbuf"
+inherit cross gnome2
+
 NAME="mingw64-i686-gdk-pixbuf2.0"
-VERSION=2.26.4
+VERSION=2.26.5
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNOME image format library for Win32 toolchain"
@@ -8,9 +12,6 @@ contains msvcrt-linked binaries (aka 'mingw').  It is for use with the
 mingw64-i686-gcc cross compiler, and installs into the
 /usr/i686-w64-mingw32/sys-root/mingw/{lib,include} directories."
 HOMEPAGE="http://www.gtk.org/"
-CROSS_HOST="i686-w64-mingw32"
-ORIG_PN="gdk-pixbuf"
-inherit cross gnome2
 
 CYGCONF_ARGS="
 	--with-included-loaders
@@ -25,5 +26,3 @@ src_install() {
 	rm -f ${D}${CROSS_BINDIR}/gdk-pixbuf-{csource,pixdata}*
 	rm -fr ${D}${CROSS_DATADIR}/man/
 }
-
-KEEP_LA_FILES="none"
